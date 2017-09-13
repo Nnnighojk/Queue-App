@@ -1,0 +1,51 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-stable bar bar-header">
+    <h1 class="title">Registration</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="doLogin()" name="myForm" ng-if="hideDetailsForm" novalidate>
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Full Name</span>
+          <input type="text" ng-model="loginData.user_full_name" name="user_full_name" required>
+        </label>
+		  <p ng-show="myForm.user_full_name.$invalid && !myForm.user_full_name.$pristine" class="help-block padding-left-15" style="margin:0px">Enter a valid Full Name.</p>		
+        <label class="item item-input">
+          <span class="input-label">City</span>
+          <select ng-model="loginData.user_city" name="user_city"  required>
+			<option ng-repeat ="data in city" ng-value="data.city_name">{{data.city_name}}</option>
+		  </select>
+        </label>
+		  <p ng-show="myForm.user_city.$invalid && !myForm.user_city.$pristine" class="help-block padding-left-15" style="margin:0px">Enter a valid City.</p>				
+        <label class="item item-input">
+          <span class="input-label">Mobile No</span>
+          <input type="number" ng-model="loginData.user_mobile_no"  ng-minlength="10" ng-maxlength="10" name="user_mobile_no"  required>
+        </label>
+		  <p ng-show="myForm.user_mobile_no.$invalid && !myForm.user_mobile_no.$pristine" class="help-block padding-left-15"  style="margin:0px">Enter a valid Mobile No.</p>		
+        <label class="item item-input">
+          <span class="input-label">Email Id</span>
+          <input type="email" ng-model="loginData.user_email_id" name="user_email_id"  required>
+        </label>	
+		<p ng-show="myForm.user_email_id.$invalid && !myForm.user_email_id.$pristine" class="help-block padding-left-15"  style="margin:0px">Enter a valid Email Id.</p>			
+        <label class="item">
+          <button class="button button-block button-positive" type="submit" ng-disabled="!myForm.$valid">Submit</button>
+        </label>
+      </div>
+    </form><!--ng-if="!hideDetailsForm"-->
+    <form ng-submit="validateOtp(otp)" ng-if="!hideDetailsForm">
+      <div class="list">
+		 <label class="item item-input item-stacked-label">
+			<span class="input-label">{{otpText}}</span>
+			<input type="number" ng-model="otp" placeholder="Enter OTP">
+		  </label>	  
+        	<p class="padding-left-15"style="margin-top:10px">Email not received? <span style="color: #D32F2F" ng-click="resendEmail($event)">Resend</p>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Verify</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

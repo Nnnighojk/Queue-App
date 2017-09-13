@@ -1,0 +1,47 @@
+<ion-view view-title="Dashboard">
+  <ion-content>
+	<div ng-if="currentQueueList">
+		<ion-list ng-if="registerQueueList.length > 0"  >
+		  <ion-item  ng-repeat="list in registerQueueList"  href="#/app/selectedPageDetails/{{$index}}/{{list.user_id}}/{{list.queue_name}}">
+			<div style="position:relative">
+				<span class="ion-person-stalker normal-font-icon margin-right-10"></span>{{list.queue_name}}
+			</div>
+			<div  style="position:relative;     margin-top: 10px;">			
+				<span class="ion-ios-calendar-outline normal-font-icon margin-right-10"></span>{{list.created_date_for}}
+			</div>	
+		  </ion-item>
+		</ion-list>		
+		<ion-list ng-if="registerQueueList.length == 0" >
+		  <ion-item >
+			<div style="position:relative">
+				<span class="ion-person-stalker normal-font-icon margin-right-10"></span>No register queue found.
+			</div>
+
+		  </ion-item>
+		</ion-list>	
+	</div>	
+	<div ng-if="!currentQueueList">
+		<div class="card">
+		  <div class="item item-divider">
+			{{selectedQueue.queue_name}}
+		  </div>
+		  <div class="item item-text-wrap">
+			<div  class="padding-top padding-bottom"  ng-if="!queueStatredStatus">
+				Queue not started yet
+			</div>		  
+			<div class="padding-top padding-bottom">Queue Date : <span>{{selectedQueue.created_date_for}}</span></div>
+			<div class="padding-top padding-bottom">Queue start time : <span>{{selectedQueue.start_time}}</span></div>		
+			<div  class="padding-top padding-bottom" ng-if="queueStatredStatus">
+				Completed People : {{completedStatus}}
+			</div>
+
+			<div class="padding-top padding-bottom">Queue no : <span>{{selectedQueue.queue_no}}</span></div>
+			<div  class="padding-top padding-bottom" ng-if="!queueStatredStatus">
+				Estimate time : NA
+			</div>
+			<div class="padding-top padding-bottom"  ng-if="queueStatredStatus">Estimate time : <span>{{calcEstimateTime}}</span></div>
+		  </div>
+		</div>
+	</div>  
+  </ion-content>		
+</ion-view>

@@ -1,0 +1,39 @@
+<ion-view view-title="Queue Category">
+  <ion-content>
+    <ion-list>
+		<ion-item class="item-input-inset">
+		  <label class="item-input-wrapper search-box">
+			<i class="icon ion-ios-search placeholder-icon"></i>
+			<input type="search" placeholder="Search for Queue" ng-keyup="queueSearch($parent.searchTextBox)" ng-model="$parent.searchTextBox">
+		  </label>
+		  <div class="cancel-button" ng-click="refreshPage()">Cancel</div>
+		</ion-item>
+		<div ng-if="unableQueueListing">
+			<ion-item >	
+				<h2 class="heading-color"> {{queueNameHeading}}</h2>
+			</ion-item>
+	
+			<ion-list class="list-extra-padding">
+			  <ion-item ng-repeat="list in queslisting" href="#/app/queueregistration/{{list.queue_name}}/{{list.queue_id}}" class="queue-listing">
+				<span class="ion-person-stalker group-icon"></span>
+				{{list.queue_name}}
+				<ion-icon class="ion-chevron-right"></ion-icon>
+			  </ion-item>
+			</ion-list>			
+		</div>
+		<div ng-if="!unableQueueListing">
+			<ion-list class="list-extra-padding">
+			  <ion-item ng-repeat="n in categoryListing" href="#/app/categorydata/{{n.category}}" class="queue-listing">
+				<span class="ion-person-stalker group-icon"></span>
+				{{n.category}}
+				<ion-icon class="ion-chevron-right"></ion-icon>
+			  </ion-item>
+			</ion-list>
+		</div>	
+    </ion-list>	
+
+  </ion-content>
+<div class="bar-stable bar bar-footer">
+  <button class="button button-clear pull-right" ng-click="openCity()">{{selectedCityName}}<span class="ion-edit " style="margin-left: 15px"></span></button>
+</div>	
+</ion-view>

@@ -1,0 +1,86 @@
+<ion-view view-title="{{MainHeading}}">
+	<ion-content>
+		<div ng-if="!aleadyInQueue">
+			<ion-item class="custom-heading"  ng-if="welcomePage">	
+				<p class="heading-color">{{queueName}} <ion-icon class="ion-ios-arrow-thin-right"></ion-icon> {{pagetitle}}</p>
+			</ion-item>			
+			<ion-item class="custom-heading"  ng-if="getAppointmentPage">	
+				<p class="heading-color">{{queueName}} <ion-icon class="ion-ios-arrow-thin-right"></ion-icon> {{getAppointmentHead}}</p>
+			</ion-item>						
+			<div ng-if="welcomePage">
+	
+				<div class="card list " >
+					<div class="item item-text-wrap">
+					<h2 class="sub-heading"><span class="ion-person-stalker icon-color-desc  margin-right-10"></span>{{curentSelectedQueue.queue_name}}</h2>
+					<div>
+						<span class="ion-lock-combination margin-right-10 icon-color-desc"></span><span  class="light-color">Close on:</span> Every {{curentSelectedQueue.close_day}}
+					</div>	
+					<div class="margin-top-15">
+						
+						<div class="light-color"><span class="ion-clipboard  margin-right-10 icon-color-desc"></span>Description:</div>
+						<span style="margin-left:28px">{{curentSelectedQueue.description}}</span>
+					</div>					
+					
+					<div class="margin-top-15 ">
+						<span class="ion-map  margin-right-10 icon-color-desc"></span>{{curentSelectedQueue.address}}, {{curentSelectedQueue.city}}
+					</div>
+					<h2 class="sub-heading"></h2>					
+					I wish to join {{curentSelectedQueue.queue_name}}.
+					<form ng-submit="getDateWiseDate(queueDate)">
+						<div class="select-container">
+							<label class="">
+								<span class="input-label heading-color-font">Select Date</span>
+								<input type="date" ng-model="queueDate">
+							</label>	
+						</div>	
+						<div class="select-container">
+							<button type ="submit" class="button button-block button-positive">
+								Get Details
+							</button>
+						</div>
+					</form>
+					</div>
+				</div>
+			</div>	
+			<div class="card list " ng-if="getAppointmentPage">
+				<div class="item item-text-wrap">
+					<div ng-if="firstInQueue">You are first in queue</div>
+					<div ng-if="!firstInQueue">There are {{}} people ahead</div>				
+					<div class="queue-etimate-time">
+
+						<span ng-if="!firstInQueue">
+							Estimate time is {{calcEstimateTime}} min						
+						</span>						
+
+					</div>
+					<div class="queue-etimate-time">
+						Do you wish to join this queue?
+						<div>
+							<button class="button button-positive queue-etimate-time float-right" ng-click="bookQueueList()">
+								&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+							</button>
+							<span class="clear"></span>
+							<div class="queue-etimate-time"></div>
+						</div>
+					</div>
+				</div>
+			</div>				
+		</div>
+		<div ng-if="aleadyInQueue">
+			<ion-item class="custom-heading"  ng-if="getAppointmentPage">	
+				<p class="heading-color">{{queueName}} <ion-icon class="ion-ios-arrow-thin-right"></ion-icon> {{queueNameDetails}}</p>
+			</ion-item>		
+			<div class="card list " ng-if="getAppointmentPage">
+				<div class="item item-divider">
+				{{queueName}}
+				</div>
+				<div class="item item-text-wrap">
+					<div ng-if="QueueStartedStatus">Queue not started yet. Queue will start on {{currentQueueStatus.created_date_for}}.</div>
+					<div class="select-container">
+						Your queue list no : {{queueListNo}}
+					</div>
+				</div>			
+			</div>	
+		</div>	
+	</ion-content>
+</ion-view>

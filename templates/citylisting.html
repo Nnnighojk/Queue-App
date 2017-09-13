@@ -1,0 +1,44 @@
+<ion-view view-title="">
+<ion-modal-view>
+  <ion-header-bar class="bar-stable bar bar-header">
+    <h1 class="title">QueueQ</h1>
+    <div class="buttons">
+      <button ng-if="selectedCityName != '' && selectedCityName != 'Selected City'" class="button button-clear" ng-click="closeLogin()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+		<ion-item class="item-input-inset">
+		  <label class="item-input-wrapper search-box">
+			<i class="icon ion-ios-search placeholder-icon"></i>
+			<input type="search" ng-model="citySearchName" placeholder="Search for city" ng-keyup="searchCity(citySearchName)" >
+		  </label>
+		  <div class="cancel-button" ng-click="refreshCityPage()">Cancel</div>
+		</ion-item>		
+    </ion-list>	
+	<div  ng-repeat="city in searchCityList" ng-if="!($parent.unablecitysearch)">
+		<ion-list class="list-extra-padding">
+		<ion-item  ng-click="selectedCity(city.city_name)">
+		{{city.city_name}}
+		</ion-item >
+		</ion-list >
+	</div>
+	
+	<div  ng-repeat="city in cityList" ng-if="$parent.unablecitysearch">
+	<div class="row"  ng-if="$even"">
+	  <div class="col"  ng-if="cityList[$index]" ng-click="selectedCity(cityList[$index].city_name)">
+		<div class="city-grid">
+			<img src="img/city/city1.png" />
+			<div>{{cityList[$index].city_name}}</div>
+		</div>
+	  </div>
+	  <div class="col" ng-if="cityList[$index + 1]" ng-click="selectedCity(cityList[$index + 1].city_name)">
+		<div class="city-grid">
+			<img src="img/city/city1.png" />
+			<div>{{cityList[$index + 1].city_name}}</div>
+		</div>
+	  </div>
+	  </div>
+	</div>	
+  </ion-content>
+</ion-view>

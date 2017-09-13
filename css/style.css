@@ -1,0 +1,192 @@
+/* Empty. Add your own CSS if you like */
+.heading-color{
+    color: #f44336;
+    line-height: 1;
+}
+
+p.heading-color {
+    color: #B71C1C;
+    font-size: 15px;
+}
+
+.cancel-button{
+    width: 60px;
+    height: 30px;
+    position: absolute;
+    right: 9px;
+    z-index: 11;
+    top: 16px;
+}
+
+.search-box{
+	position: relative
+}
+
+.edit-btn.ion-edit{
+	position: fixed;
+    right: 25px;
+    font-size: 22px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    /* border: 1px solid #ccc; */
+    z-index: 11;
+    /* padding-top: 10px; */
+    vertical-align: middle;
+    line-height: 2.1;
+    /* padding-bottom: 2px; */
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-box-shadow: 0px 2px 1px #b1b1b1;
+    box-shadow: 0px 2px 1px #b1b1b1;
+    background-color: rgba(255, 0, 0, 0.71);
+    color: white;
+    cursor: pointer;
+    top: 5px;	
+    backface-visibility: visible;
+}
+
+.queue-etimate-time, .select-container{
+	margin-top : 10px
+}
+
+.select-container input {
+    padding-top: 0px !important;
+}
+
+.float-right{
+    float: right;
+}
+
+.clear{
+    clear: both;
+    display: block;    
+}
+
+.float-right:after{
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.city-grid {
+    background-color: white;
+    /* min-height: 190px; */
+    position: relative;
+    margin: 5px;
+    border-radius: 1px;
+    text-align: center;
+}
+
+.city-grid > img {
+    width: 70%;
+}
+
+.city-grid > div {
+    /* position: absolute; */
+    /* bottom: 10px; */
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    padding-bottom: 10px;
+}
+
+.city-grid > .adjust-img {
+    padding-top: 10px;
+    width: 68%;
+}
+
+.city-grid > .adjust-smaller{
+    width: 75%;	
+}
+
+.group-icon{
+    font-size: 31px;
+    color: #F44336;
+    position: absolute;
+    left: 15px;
+    top: 18px;
+}
+
+.normal-font-icon{
+	color: #F44336;
+	font-size: 25px;
+	vertical-align: text-top;
+}
+
+.big-bar .group-icon{
+	top: 25px;
+}
+
+.big-bar ion-item.queue-listing .ion-chevron-right{
+    top: 34px;	
+}
+
+ion-item.queue-listing .item-content {
+    padding: 25px 25px 25px 55px;
+}
+
+ion-item.queue-listing .ion-chevron-right {
+    position: absolute;
+    right: 15px;
+    color: #F44336;
+}
+
+.list-extra-padding .list{
+    padding: 10px 10px;
+}
+
+.list-extra-padding .queue-listing{
+    margin-bottom: 10px;	
+}
+
+.custom-heading{
+    padding: 0px 15px;
+    background-color: rgba(241, 55, 35, 0.74);
+    color: white;
+    margin-top: -2px;
+}	
+
+.custom-heading p.heading-color {
+	color:white;
+	font-size: 14px;
+	padding: 5px 0;
+}
+
+h2.sub-heading{
+    font-weight: 600;
+    padding-bottom: 15px;
+    color: #666;
+    font-size: 20px;
+    border-bottom: 1px solid #d6d6d6;
+    margin-bottom: 15px;
+}	
+
+.button.button-positive {
+    border-color: transparent;
+    background-color: #D32F2F;
+    color: #fff;
+}	
+
+.margin-right-10{
+	margin-right: 10px;
+}
+
+.icon-color-desc{
+    font-size: 25px;
+    color: #F44336;
+    position: relative;
+    top: 2px;
+}
+
+.margin-top-15{
+	margin-top:15px;
+}
+
+.padding-left-15{
+	padding-left:15px;
+}
+
+.light-color{
+    color: #afafaf;
+}
